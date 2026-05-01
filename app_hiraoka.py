@@ -205,7 +205,7 @@ if uploaded_transacciones and uploaded_reseñas:
             .fillna(0)
         )
 
-        basket = basket.applymap(lambda x: 1 if x > 0 else 0)
+        basket = (basket > 0).astype(int)
 
         st.dataframe(basket.head())
 
